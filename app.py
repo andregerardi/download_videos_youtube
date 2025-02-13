@@ -26,9 +26,7 @@ def baixar_video(url):
     # Baixar o vídeo
     ys = yt.streams.get_highest_resolution()
     video_filename = "video.mp4"
-    ys.download(filename=video_filename)
-    st.success("Vídeo gerado com sucesso!")
-    
+    ys.download(filename=video_filename)    
     return video_filename, text
 
 ### titulo
@@ -52,5 +50,7 @@ if st.button("Processar"):
                 data=f,
                 file_name=video_filename,
                 mime="mp4")
+        st.success("Vídeo gerado com sucesso!")
+
     else:
         st.error("Por favor, insira uma URL válida.")
