@@ -1,9 +1,8 @@
 # Objetivo do app
 
-Oferecer uma interface web para baixar vídeos do YouTube e processar suas legendas utilizadas em minhas pesquisas. O App exibe metadados do vídeo, processa as legendas removendo timestamps e números isolados, e permite que o usuário baixe o vídeo. A interface inclui um campo para inserir a URL do vídeo e um botão para iniciar o processamento.
+Oferecer uma interface web para baixar vídeos do YouTube utilizados em minhas pesquisas. O App exibe metadados do vídeo e permite que o usuário baixe o vídeo. A interface inclui um campo para inserir a URL do vídeo e um botão para iniciar o processamento e download do video.
 
-
-# Instruções para rodar o aplicativo
+# Instruções para rodar o aplicativo no Python
 
 Para rodar o aplicativo Streamlit, siga os passos abaixo.
 
