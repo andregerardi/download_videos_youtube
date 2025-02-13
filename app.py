@@ -63,7 +63,7 @@ if st.button("Processar"):
         yt = YouTube(url)
         baixar_metadados(yt)
         baixar_video(yt)
-        baixar_legendas(yt)
+        #baixar_legendas(yt)
     else:
         st.error("Por favor, insira uma URL válida.")
 
