@@ -22,7 +22,8 @@ def baixar_metadados(yt):
     st.write(f"✔️ Total de views do vídeo: {yt.views}")
 
 def baixar_video(yt):
-    ys = yt.streams.get_highest_resolution()
+    with st.spinner('Baixando o vídeo...'):
+        ys = yt.streams.get_highest_resolution()
     captions_filename = "video.mp4"
     ys.download(filename=captions_filename)    
     with open(captions_filename, "rb") as f:
