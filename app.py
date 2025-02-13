@@ -20,8 +20,6 @@ def baixar_video(url):
     
     try:
         caption = yt.captions['a.pt'].generate_srt_captions()  # Pega a legenda no idioma português
-    except KeyError:
-        st.error("Não foi possível encontrar legendas para este vídeo.")
     except:
         caption = yt.captions.generate_srt_captions()
     
