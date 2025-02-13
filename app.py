@@ -41,19 +41,6 @@ def baixar_video(url):
             data=f,
             file_name=video_filename,
             mime="mp4")
-    
-    ## deixei para desenvolver posteriormente ##
-    # # Salvar as legendas em um arquivo
-    # legenda_filename = "legendas.txt"
-    # with open(legenda_filename, "w", encoding="utf-8") as f:
-    #     f.write(text)
-    # st.success("Legendas geradas com sucesso!")
-    
-    # # Criar um arquivo zip contendo o vídeo e as legendas
-    # zip_filename = "video_e_legendas.zip"
-    # with zipfile.ZipFile(zip_filename, 'w') as zipf:
-    #     zipf.write(video_filename)
-    #     zipf.write(legenda_filename)
 
 # Interface Streamlit
 left_co, cent_co,last_co = st.columns(3)
