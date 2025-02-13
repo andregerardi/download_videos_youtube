@@ -33,10 +33,10 @@ def baixar_video(yt):
             mime="mp4")
     st.success("Vídeo gerado com sucesso!")
 
-def baixar_legendas(yt):
-    text = processa_captions(yt.captions['a.pt'].generate_srt_captions())
+#def baixar_legendas(yt):
+    #text = processa_captions(yt.captions['a.pt'].generate_srt_captions())
     # Exibe o texto das legendas
-    st.text_area("📝 Legendas", value=text[0:600], height=300)
+    #st.text_area("📝 Legendas", value=text[0:600], height=300)
     # captions_filename = "legendas.txt"
     # if "Baixar Legendas":
     #     with open(captions_filename, "rb") as fl:
