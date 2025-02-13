@@ -59,7 +59,8 @@ def baixar_video(url):
 left_co, cent_co,last_co, L, M = st.columns(5)
 with last_co:
     st.image("./image.png", width=150)
-st.title("🤖 Download de vídeos do YouTube", )
+st.title("🤖 YouTuber")
+st.subhead("Download de vídeos do YouTube")
 
 # Input do link do vídeo
 url = st.text_input("Insira a URL do vídeo do YouTube:")
