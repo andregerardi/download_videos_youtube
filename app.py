@@ -1,5 +1,5 @@
 import streamlit as st
-import re
+import regex as re
 from pytubefix import YouTube
 
 # Função para processar as legendas
@@ -23,7 +23,7 @@ def baixar_video(url):
     
     # Exibe o texto das legendas
     st.text_area("📝 Legendas", value=text, height=300)
-    st.download_button(label="Baixar Legendas", data=text, file_name="legendas.txt", mime="text/plain"):
+    st.download_button(label="Baixar Legendas", data=text, file_name="legendas.txt", mime="text/plain")
     st.success("Legendas geradas com sucesso!")
     
     # Baixar o vídeo
