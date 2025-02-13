@@ -22,25 +22,11 @@ def baixar_video(url):
 
     # Processa as legendas
     text = processa_captions(yt.captions['a.pt'].generate_srt_captions())
-
-    # Exibe o texto das legendas
-    st.text_area("📝 Legendas", value=text, height=300)
   
     # Baixar o vídeo
     ys = yt.streams.get_highest_resolution()
     
-    # baixar
-    video_filename = "video.mp4"
-    ys.download(filename=video_filename)
-    st.success("Vídeo gerado com sucesso!")
-
-    # Exibir o botão para baixar o arquivo zip
-    with open(video_filename, "rb") as f:
-        st.download_button(
-            label="Baixar Vídeo",
-            data=f,
-            file_name=video_filename,
-            mime="mp4")
+    return ys, text
 
 # Interface Streamlit
 left_co, cent_co,last_co = st.columns(3)
@@ -54,6 +40,22 @@ url = st.text_input("Insira a URL do vídeo do YouTube:")
 
 if st.button("Processar"):
     if url:
-        baixar_video(url)
+        ys, text = baixar_video(url)
+
+        # Exibe o texto das legendas
+        st.text_area("📝 Legendas", value=text, height=300)
+
+        # baixar
+        video_filename = "video.mp4"
+        ys.download(filename=video_filename)
+        st.success("Vídeo gerado com sucesso!")
+
+        # Exibir o botão para baixar o arquivo zip
+        with open(video_filename, "rb") as f:
+            st.download_button(
+                label="Baixar Vídeo",
+                data=f,
+                file_name=video_filename,
+                mime="mp4")
     else:
         st.error("Por favor, insira uma URL válida.")
