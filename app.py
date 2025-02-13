@@ -18,9 +18,9 @@ def baixar_video(url):
     st.write(f"✔️ Data de publicação: {yt.publish_date}")
     st.write(f"✔️ Total de views do vídeo: {yt.views}")
     
-    try:
-        caption = yt.captions['a.pt'].generate_srt_captions()  # Pega a legenda no idioma português
-    except:
+    if 'a.pt' in yt.captions:
+        caption = yt.captions['a.pt'].generate_srt_captions()
+    else:
         caption = yt.captions.generate_srt_captions()
     
     text = processa_captions(caption)
