@@ -1,8 +1,10 @@
 import streamlit as st
 import regex as re
 from pytubefix import YouTube
-import zipfile
 import os
+
+
+### primeira parte das funções ###
 
 # Função para processar as legendas
 def processa_captions(caption):
@@ -13,44 +15,61 @@ def processa_captions(caption):
     return texto_final
 
 # Função para baixar o vídeo e legendas
-def baixar_video(url):
-    yt = YouTube(url)
+def baixar_metadados(yt):
     st.subheader("Metadados do vídeo:")
     st.write(f"✔️ Título do vídeo: {yt.title}")
     st.write(f"✔️ Data de publicação: {yt.publish_date}")
     st.write(f"✔️ Total de views do vídeo: {yt.views}")
 
-    # Processa as legendas
-    text = processa_captions(yt.captions['a.pt'].generate_srt_captions())
-  
-    # Baixar o vídeo
+def baixar_video(yt):
     ys = yt.streams.get_highest_resolution()
-    video_filename = "video.mp4"
-    ys.download(filename=video_filename)    
-    return video_filename, text
+    captions_filename = "video.mp4"
+    ys.download(filename=captions_filename)    
+    with open(captions_filename, "rb") as f:
+        st.download_button(
+            label="Baixar Vídeo",
+            data=f,
+            file_name=captions_filename,
+            mime="mp4")
+    st.success("Vídeo gerado com sucesso!")
 
-### titulo
-    
+def baixar_legendas(yt):
+    text = processa_captions(yt.captions['a.pt'].generate_srt_captions())
+    # Exibe o texto das legendas
+    st.text_area("📝 Legendas", value=text, height=300)
+    # captions_filename = "legendas.txt"
+    # with open(captions_filename, "rb") as fl:
+    #     st.download_button(
+    #         label="Baixar Legendas",
+    #         data=fl,
+    #         file_name=captions_filename,
+    #         mime="plan/text")
+    # st.success("Vídeo gerado com sucesso!")
+
+### segunda parte do código ###
+
+# titulo
 st.title("🤖 YouTuber")
+st.markdown("#### ⏯️ Download de vídeos e legendas do YouTube")
 
 # Input do link do vídeo
 url = st.text_input("Insira a URL do vídeo do YouTube:")
 
+# Processamento
 if st.button("Processar"):
     if url:
-        video_filename, text = baixar_video(url)
-
-        # Exibe o texto das legendas
-        st.text_area("📝 Legendas", value=text, height=300)
-
-        # Exibir o botão para baixar o arquivo zip
-        with open(video_filename, "rb") as f:
-            st.download_button(
-                label="Baixar Vídeo",
-                data=f,
-                file_name=video_filename,
-                mime="mp4")
-        st.success("Vídeo gerado com sucesso!")
-
+        # chama aplicação
+        yt = YouTube(url)
+        baixar_metadados(yt)
+        baixar_video(yt)
+        baixar_legendas(yt)
     else:
         st.error("Por favor, insira uma URL válida.")
+
+
+## rodapé
+st.markdown("""
+<div style="position: fixed; bottom: 0; left: 0; right: 0; text-align: center; padding: 15px; background-color: ##191970;">
+    🔗 <a href="https://www.linkedin.com/in/andr%C3%A9-gerardi-ds/" target="_blank">By André Gerardi</a>
+</div>
+""", unsafe_allow_html=True)
