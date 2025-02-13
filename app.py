@@ -51,7 +51,7 @@ def baixar_video(yt):
 
 # titulo
 st.title("🤖 YouTuber")
-st.markdown("#### ⏯️ Download de vídeos e legendas do YouTube")
+st.markdown("#### ⏯️ Download de vídeos do YouTube")
 
 # Input do link do vídeo
 url = st.text_input("Insira a URL do vídeo do YouTube:")
