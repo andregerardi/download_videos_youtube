@@ -25,6 +25,4 @@ Para rodar o aplicativo Streamlit, siga os passos abaixo.
     http://localhost:8501
     
 
-Agora tudo está no mesmo bloco! 
-
-Você pode copiar e colar direto o texto do markdown.
+Agora tudo está pronto! 
