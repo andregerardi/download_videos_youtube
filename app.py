@@ -58,7 +58,7 @@ def baixar_video(url):
 # Interface Streamlit
 left_co, cent_co,last_co, L, M = st.columns(5)
 with last_co:
-    st.image("./image.png", width=130)
+    st.image("./image.png", width=150)
 st.title("🤖 Download de Vídeos do YouTube", )
 
 # Input do link do vídeo
