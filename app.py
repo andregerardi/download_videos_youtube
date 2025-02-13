@@ -38,13 +38,14 @@ def baixar_legendas(yt):
     # Exibe o texto das legendas
     st.text_area("📝 Legendas", value=text, height=300)
     # captions_filename = "legendas.txt"
-    # with open(captions_filename, "rb") as fl:
-    #     st.download_button(
-    #         label="Baixar Legendas",
-    #         data=fl,
-    #         file_name=captions_filename,
-    #         mime="plan/text")
-    # st.success("Vídeo gerado com sucesso!")
+    # if "Baixar Legendas":
+    #     with open(captions_filename, "rb") as fl:
+    #         st.download_button(
+    #             label="Baixar Legendas",
+    #             data=fl,
+    #             file_name=captions_filename,
+    #             mime="plan/text")
+    #     st.success("Vídeo gerado com sucesso!")
 
 ### segunda parte do código ###
 
