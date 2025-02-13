@@ -18,7 +18,13 @@ def baixar_video(url):
     st.write(f"✔️ Data de publicação: {yt.publish_date}")
     st.write(f"✔️ Total de views do vídeo: {yt.views}")
     
-    caption = yt.captions['a.pt'].generate_srt_captions()  # Pega a legenda no idioma português
+    try:
+        caption = yt.captions['a.pt'].generate_srt_captions()  # Pega a legenda no idioma português
+    except KeyError:
+        st.error("Não foi possível encontrar legendas para este vídeo.")
+    except:
+        caption = yt.captions.generate_srt_captions()
+    
     text = processa_captions(caption)
     
     # Exibe o texto das legendas
