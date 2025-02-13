@@ -25,13 +25,13 @@ def baixar_video(url):
   
     # Baixar o vídeo
     ys = yt.streams.get_highest_resolution()
+    video_filename = "video.mp4"
+    ys.download(filename=video_filename)
+    st.success("Vídeo gerado com sucesso!")
     
-    return ys, text
+    return video_filename, text
 
-# Interface Streamlit
-left_co, cent_co,last_co = st.columns(3)
-with cent_co:
-    st.image("./image.png", width=150)
+### titulo
     
 st.title("🤖 YouTuber")
 
@@ -40,15 +40,10 @@ url = st.text_input("Insira a URL do vídeo do YouTube:")
 
 if st.button("Processar"):
     if url:
-        ys, text = baixar_video(url)
+        video_filename, text = baixar_video(url)
 
         # Exibe o texto das legendas
         st.text_area("📝 Legendas", value=text, height=300)
-
-        # baixar
-        video_filename = "video.mp4"
-        ys.download(filename=video_filename)
-        st.success("Vídeo gerado com sucesso!")
 
         # Exibir o botão para baixar o arquivo zip
         with open(video_filename, "rb") as f:
