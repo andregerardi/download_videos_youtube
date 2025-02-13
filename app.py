@@ -56,11 +56,11 @@ def baixar_video(url):
     #     zipf.write(legenda_filename)
 
 # Interface Streamlit
-left_co, cent_co,last_co, L, M = st.columns(5)
-with last_co:
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
     st.image("./image.png", width=150)
+    
 st.title("🤖 YouTuber")
-st.subhead("Download de vídeos do YouTube")
 
 # Input do link do vídeo
 url = st.text_input("Insira a URL do vídeo do YouTube:")
