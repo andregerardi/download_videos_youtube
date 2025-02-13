@@ -19,7 +19,7 @@ Para rodar o aplicativo Streamlit, siga os passos abaixo.
     streamlit run app.py
     
  
- 3. **Acessar o aplicativo**: O Streamlit irá iniciar o aplicativo e abrir automaticamente uma janela no seu navegador padrão. Caso isso não aconteça, acesse manualmente o aplicativo em:
+ 3. **Acessar o aplicativo**: O Streamlit irá iniciar o aplicativo e abrir automaticamente uma janela no seu navegador padrão. Caso isso não aconteça, acesse manualmente. Copie e cole o endereço em seu navegador.
 
     ```bash
     http://localhost:8501
