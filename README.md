@@ -1,6 +1,6 @@
 # Objetivo do app
 
-Oferecer uma interface web para baixar vídeos do YouTube e processar suas legendas de ineresse dos pesquisadores do Observatório da Religião e Intersectionalidades Cebrap. Ele exibe metadados do vídeo, processa as legendas removendo timestamps e números isolados, e permite que o usuário baixe o vídeo. A interface inclui um campo para inserir a URL do vídeo e um botão para iniciar o processamento.
+Oferecer uma interface web para baixar vídeos do YouTube e processar suas legendas utilizadas em minhas pesquisas. O App exibe metadados do vídeo, processa as legendas removendo timestamps e números isolados, e permite que o usuário baixe o vídeo. A interface inclui um campo para inserir a URL do vídeo e um botão para iniciar o processamento.
 
 
 # Instruções para rodar o aplicativo
